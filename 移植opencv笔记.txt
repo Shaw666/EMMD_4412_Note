@@ -52,3 +52,5 @@ Linking CXX executable ../../bin/opencv_perf_core
 ../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_read_frame@LIBAVFORMAT_55'
 ../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_flush_buffers@LIBAVCODEC_55'
 
+
+排除ffmpeg可以交叉编译成功
