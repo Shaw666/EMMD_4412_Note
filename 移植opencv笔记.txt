@@ -1,0 +1,54 @@
+完全修改gcc=arm-linux-gcc要不然编译报错，因为使用不同编译器，
+libxvid需要进入generic目录，
+ffmpeg需要libx264，libxvid，我曹 搞了好久，需要另外加入库lib和include，使用-extra cflags lflags = 库路径，可以两次使用添加两个库路径，，，
+./configure --prefix=/usr/local/arm/4.3.2/arm-none-linux-gnueabi/ffmpeg-install --enable-shared --disable-static --enable-gpl --enable-cross-compile --arch=arm --disable-stripping --target-os=linux --enable-libx264 --enable-libxvid --cc=arm-linux-gcc --enable-swscale --extra-cflags=-I/usr/local/arm/4.3.2/arm-none-linux-gnueabi/libx264-install/include --extra-cflags=--I/usr/local/arm/4.3.2/arm-none-linux-gnueabi/libxvid-install/include --extra-ldflags=-L/usr/local/arm/4.3.2/arm-none-linux-gnueabi/libx264-install/lib --extra-ldflags=-L/usr/local/arm/4.3.2/arm-none-linux-gnueabi/libxvid-install/lib --disable-asm
+
+apt-get install cmake-qt-gui 安装cmake-gui 配置东西
+
+Linking CXX executable ../../bin/opencv_perf_core
+/usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/../../../../arm-none-linux-gnueabi/bin/ld: warning: libavcodec.so.55, needed by ../../lib/libopencv_highgui.so.2.4.9, not found (try using -rpath or -rpath-link)
+/usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/../../../../arm-none-linux-gnueabi/bin/ld: warning: libavformat.so.55, needed by ../../lib/libopencv_highgui.so.2.4.9, not found (try using -rpath or -rpath-link)
+/usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/../../../../arm-none-linux-gnueabi/bin/ld: warning: libavutil.so.52, needed by ../../lib/libopencv_highgui.so.2.4.9, not found (try using -rpath or -rpath-link)
+/usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/../../../../arm-none-linux-gnueabi/bin/ld: warning: libswscale.so.2, needed by ../../lib/libopencv_highgui.so.2.4.9, not found (try using -rpath or -rpath-link)
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avio_close@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `sws_getCachedContext@LIBSWSCALE_2'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_open_input@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_rescale_q@LIBAVUTIL_52'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_codec_get_id@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_log_set_level@LIBAVUTIL_52'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_write_header@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_guess_codec@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_alloc_frame@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_close@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_decode_video2@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avio_open@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_find_decoder@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `sws_freeContext@LIBSWSCALE_2'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_free_packet@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avpicture_get_size@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_alloc_context@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_network_init@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_open2@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_malloc@LIBAVUTIL_52'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_guess_format@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_seek_frame@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avpicture_fill@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_sub_q@LIBAVUTIL_52'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_new_stream@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `sws_scale@LIBSWSCALE_2'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_init_packet@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_find_stream_info@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_free_context@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_register_all@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_encode_video@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_find_encoder@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `sws_getContext@LIBSWSCALE_2'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_write_frame@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_freep@LIBAVUTIL_52'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avformat_close_input@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_write_trailer@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_free@LIBAVUTIL_52'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_lockmgr_register@LIBAVCODEC_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `av_read_frame@LIBAVFORMAT_55'
+../../lib/libopencv_highgui.so.2.4.9: undefined reference to `avcodec_flush_buffers@LIBAVCODEC_55'
+
